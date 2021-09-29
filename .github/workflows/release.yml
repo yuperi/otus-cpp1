@@ -26,7 +26,7 @@ jobs:
           DAY_OF_WEEK: Mon
         with:
           tag_name: ${{ github.run_number }}
-          release_name: Release ${{ github.run_number }} $DAY_OF_WEEK
+          release_name: Release ${{ github.run_number }} ${{ env.DAY_OF_WEEK }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
