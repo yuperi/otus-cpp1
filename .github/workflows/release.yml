@@ -18,7 +18,7 @@ jobs:
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
-      - run: echo "MY_DATE=$(date '+Сборка от %A, %B %d)" >> $GITHUB_ENV
+      - run: echo "MY_DATE=$(date '+Сборка от %a, %b %d')" >> $GITHUB_ENV
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
