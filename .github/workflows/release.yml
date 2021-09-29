@@ -18,7 +18,7 @@ jobs:
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
-      - run: echo "MY_DATE=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+      - run: echo "MY_DATE=$(date '+Сборка от %A, %B %d)" >> $GITHUB_ENV
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -27,7 +27,7 @@ jobs:
           DAY_OF_WEEK: Mon
         with:
           tag_name: ${{ github.run_number }}
-          release_name: Release ${{ github.run_number }} ${{ env.DAY_OF_WEEK }} ${{ env.MY_DATE }}
+          release_name: Release ${{ github.run_number }} ${{ env.MY_DATE }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
